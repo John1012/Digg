@@ -1,0 +1,3 @@
+include ':digg-app', ':digg-core'
+project(':digg-app').projectDir = new File('app')
+project(':digg-core').projectDir = new File('core')

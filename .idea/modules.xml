@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Digg.iml" filepath="$PROJECT_DIR$/Digg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/digg-app.iml" filepath="$PROJECT_DIR$/app/digg-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/digg-core.iml" filepath="$PROJECT_DIR$/core/digg-core.iml" />
+    </modules>
+  </component>
+</project>
