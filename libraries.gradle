@@ -20,6 +20,8 @@ ext {
 
     //Java
     rxjavaVersion = "1.2.3"
+    autoValueVersion = "1.2"
+    guavaVersion = "19.0"
 
     //Testing
     junitVersion = "4.12"
@@ -55,6 +57,8 @@ ext {
             ormLiteCore      : "com.j256.ormlite:ormlite-core:${ormLiteVersion}",
             firebaseCore     : "com.google.firebase:firebase-core:${firebaseVersion}",
             firebaseCrash    : "com.google.firebase:firebase-crash:${firebaseVersion}",
+            autoVaule        : "com.google.auto.value:auto-value:${autoValueVersion}",
+            guava            : "com.google.guava:guava:${guavaVersion}",
     ]
 
     aptLibraries = [

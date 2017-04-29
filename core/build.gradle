@@ -22,6 +22,8 @@ retrolambda {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    compile rootProject.ext.libraries.guava
+
     testCompile rootProject.ext.testLibraries.junit
     testCompile rootProject.ext.testLibraries.mockito
 }
