@@ -14,4 +14,6 @@ public interface TopicsDataSource {
     List<Topic> readTopics(int start, int end);
     void updateTopic(Topic topic);
     void deleteTopic(Topic topic);
+    int size();
+    Topic findById(String id);
 }

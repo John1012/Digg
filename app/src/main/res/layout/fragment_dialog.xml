@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/id_label_title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="5dp"
+        android:text="Create Topic" />
+
+    <EditText
+        android:id="@+id/id_txt_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_label_title"
+        android:hint="@string/create_topic_hint"
+        android:textColorHint="@color/colorGray"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        />
+
+    <Button
+        android:id="@+id/id_btn_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/id_txt_content"
+        android:text="POST" />
+
+    <Button
+        android:id="@+id/id_btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_txt_content"
+        android:layout_toLeftOf="@id/id_btn_post"
+        android:text="CANCEL" />
+
+</RelativeLayout>

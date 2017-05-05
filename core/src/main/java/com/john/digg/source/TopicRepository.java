@@ -61,4 +61,15 @@ public class TopicRepository implements TopicsDataSource {
         checkNotNull(topic);
         mTopicLruCache.remove(topic);
     }
+
+
+    @Override
+    public int size() {
+        return mTopicLruCache.size();
+    }
+
+    @Override
+    public Topic findById(String id) {
+        return mTopicLruCache.get(id);
+    }
 }

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Digg</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_digg">DiggActivity</string>
+    <string name="title_activity_create_topic">CreateTopicActivity</string>
+    <string name="create_topic_hint">Share your topic</string>
+    <string name="menu_vote">voted</string>
+    <string name="menu_time">time</string>
 </resources>

@@ -16,9 +16,9 @@ public class GetOrderedTopicByVotesTest {
 
     @Test
     public void testGetTopic() {
-        UseCase useCase = new GetOrderedTopicByVotes(TopicRepository.getInstance());
+        UseCase useCase = new GetTopicByVotes(TopicRepository.getInstance());
         UseCaseHandler handler = UseCaseHandler.getInstance();
-        handler.execute(useCase, new GetOrderedTopicByVotes.RequestValues(0, 20), new UseCase.UseCaseCallback() {
+        handler.execute(useCase, new GetTopicByVotes.RequestValues(0, 20), new UseCase.UseCaseCallback() {
             @Override
             public void onSuccess(Object response) {
                 fail("It's should not success");

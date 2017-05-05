@@ -4,7 +4,6 @@ import com.john.digg.data.Topic;
 import com.john.digg.source.TopicRepository;
 import com.john.digg.usecase.UseCase;
 
-import java.util.Comparator;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -13,14 +12,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Created by changjohn on 2017/4/27.
  */
 
-public class GetOrderedTopicByVotes
-        extends UseCase<GetOrderedTopicByVotes.RequestValues,GetOrderedTopicByVotes.ResponseValue>{
+public class GetTopicByVotes
+        extends UseCase<GetTopicByVotes.RequestValues,GetTopicByVotes.ResponseValue>{
 
     private TopicRepository mRepository = null;
-    private VotedComparator mComparator = null;
-    public GetOrderedTopicByVotes(TopicRepository repository) {
+    public GetTopicByVotes(TopicRepository repository) {
         mRepository = repository;
-        mComparator = new VotedComparator();
     }
     @Override
     protected void executeUseCase(RequestValues requestValues) {
@@ -28,26 +25,9 @@ public class GetOrderedTopicByVotes
         int end = requestValues.getEnd();
         try {
             List<Topic> topics = mRepository.readTopics(start,end);
-            topics.sort(mComparator);
             mCallback.onSuccess(new ResponseValue(topics));
         } catch (IndexOutOfBoundsException e) {
             mCallback.onError();
-        }
-    }
-
-    protected class VotedComparator implements Comparator<Topic> {
-
-        @Override
-        public int compare(Topic lhs, Topic rhs) {
-            long lhsVotes = lhs.getVotes();
-            long rhsVotes = rhs.getVotes();
-            if (lhsVotes > rhsVotes) {
-                return -1;
-            } else if (lhsVotes < rhsVotes) {
-                return 1;
-            } else {
-                return (lhs.getCreatedTimestamp() > rhs.getCreatedTimestamp()) ? 1 : -1;
-            }
         }
     }
 

@@ -14,25 +14,34 @@ public class DownvoteTopic extends UseCase<DownvoteTopic.RequestValues,DownvoteT
     @Override
     protected void executeUseCase(RequestValues requestValues) {
         try {
-            Topic topic = checkNotNull(requestValues.getTopic(), "The topic should not be null");
+            String id = checkNotNull(requestValues.getId(),"The id should not be null");
+            Topic topic = TopicRepository.getInstance().findById(id);
             topic.downvotes();
-            TopicRepository.getInstance().updateTopic(topic);
-            mCallback.onSuccess(new ResponseValue());
+            checkNotNull(mCallback).onSuccess(new ResponseValue(topic.getVotes()));
         } catch (NullPointerException e) {
-            mCallback.onError();
+//            mCallback.onError();
         }
     }
 
     public static final class RequestValues implements UseCase.RequestValues {
-        private Topic mTopic;
-        public RequestValues(Topic topic) {
-            mTopic = topic;
+        private String mId;
+        public RequestValues(String id) {
+            mId = id;
         }
 
-        public Topic getTopic() {
-            return mTopic;
+        public String getId() {
+            return mId;
         }
     }
 
-    public static final class ResponseValue implements UseCase.ResponseValue {}
+    public static final class ResponseValue implements UseCase.ResponseValue {
+        private long mVote;
+        public ResponseValue(long vote) {
+            mVote = vote;
+        }
+
+        public long getVote() {
+            return mVote;
+        }
+    }
 }

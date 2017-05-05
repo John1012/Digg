@@ -1,10 +1,13 @@
 package com.john.digg.data;
 
+import java.util.UUID;
+
 /**
  * Created by changjohn on 2017/4/23.
  */
 public class Topic {
     public static final int MAX_CONTENT_CHAR = 255;
+    protected String mUniqueID;
     protected String mPublisher;
     protected String mContent;
     protected long mCreatedTimestamp;
@@ -23,6 +26,7 @@ public class Topic {
         }
     }
     protected Topic(String publisher, String content) {
+        mUniqueID = UUID.randomUUID().toString();
         mPublisher = publisher;
         mContent = content;
         mCreatedTimestamp = System.currentTimeMillis();
@@ -71,5 +75,9 @@ public class Topic {
 
     public void downvotes() {
         mDownvotes++;
+    }
+
+    public String getId() {
+        return mUniqueID;
     }
 }

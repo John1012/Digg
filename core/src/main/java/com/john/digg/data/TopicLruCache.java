@@ -41,7 +41,15 @@ public class TopicLruCache {
         if(start < 0 || end > mTopicQueue.size())
             throw new IndexOutOfBoundsException();
 
-        return mTopicQueue.subList(start, end);
+        return new LinkedList<Topic>(mTopicQueue.subList(start, end));
+    }
+
+    public Topic get(final String id) {
+        for(Topic topic : mTopicQueue) {
+            if(topic.getId().equals(id))
+                return topic;
+        }
+        return null;
     }
 
     public int size() {
@@ -51,6 +59,7 @@ public class TopicLruCache {
     public boolean isExist(final Topic topic) {
         return mTopicQueue.contains(topic);
     }
+
 
     protected void cleanup() {
         if (size() > mMaxItems) {
