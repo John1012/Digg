@@ -28,4 +28,5 @@ This's developing version, not production. There are a few features I have done.
 * create new topic
 * upvote/downvote topic.
 * sort via voted amount or creation time
-<img src="https://github.com/John1012/Digg/wiki/images/DiggDemo.gif" alt="Demo"/>
+
+<img src="https://cloud.githubusercontent.com/assets/13214877/25736185/f18d0898-31a2-11e7-8941-887bff01dc41.gif" alt="Demo"/>
