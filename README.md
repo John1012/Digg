@@ -10,13 +10,13 @@ The goal is that Digg domain should not dependency at any platform. It should be
 Another reason is division of work. If our app lacks of User Interface, we can strongly hire engineers who are familiar with UI. Otherwise, I can hire engineers who are familiar with digg domain.
 
 Currently, my idea is that Digg-core adopt clean architecture and Digg-app adopt MVP.
+<img alt="diggarchitecture" src="https://cloud.githubusercontent.com/assets/13214877/25787740/92494df2-33d6-11e7-9f05-4b26703574ff.png">
 
 <p><b>Why I prefer to adopt clean architecture in Digg-core?</b></p>
 Because dependancy of this structure is very clarity. The source code dependencies can only point inward. 
 It means inner circle should not know something about outer circle.
 In addition, I choose <em>Repository Pattern</em> at Entities layer. Afterward, whatever use local and remote storage. it doesn't matter.
 Finally, I choose <em>Command Pattern</em> to isolate each business logic. It become easy extendibility.
-
 
 <p><b>Why I prefer to adopt MVP in Digg-app?</b></p>
 The only reason is to level up testability. Testability is important activity in the development. Let <em>Presenter</em> become 'middle-man'
